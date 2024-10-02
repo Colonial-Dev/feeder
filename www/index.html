@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Feeder Control Panel</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    </head>
+    <body>
+        <h3 style="text-align: center;"">Feeder Control Panel</h3>
+        <p align="center">
+            <i>{now}</i>
+        </p>
+
+        <hr>
+        
+        <ul>
+            <li>Feeding times and amounts are stored as tuples with the format <code>(hour, minute, amount)</code>.</li>
+            <li>Hours are in 24-hour, UTC-5 time.</li>
+            <li><code>amount</code> is the number of times to advance the auger motor.</li>
+        </ul>
+
+        <form action="/schedule" method="post">
+            <textarea id="schedule" name="schedule" placeholder="(Hour, Minute, Steps)...">{schedule}</textarea>
+            <input type="submit" value="Flash!">
+        </form>
+
+        <hr>
+
+        <form action="/feed" method="post">
+            <input id="steps" name="steps" type="number" placeholder="Steps...">
+            <input style="background-color: darkred;" type="submit", value="Feed!">
+        </form>
+    </body>
+</html>
